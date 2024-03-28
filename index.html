@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+
+
+  </head>
+  <style>
+    /* GENERAL */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color:rgb(223, 210, 210);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+p {
+  color: black;
+}
+
+/* TRANSITION */
+
+a,
+.btn {
+  transition: all 300ms ease;
+}
+
+/* DESKTOP NAV */
+
+nav,
+.nav-links {
+  display: flex;
+}
+
+nav {
+  justify-content: space-around;
+  align-items: center;
+  height: 17vh;
+}
+
+.nav-links {
+  gap: 2rem;
+  list-style: none;
+  font-size: 1.5rem;
+}
+
+a {
+  color:  rgb(4, 7, 11);
+  text-decoration: none;
+  text-decoration-color:black;
+}
+
+a:hover {
+  color: rgb(139, 193, 255);
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+  text-decoration-color: rgb(181, 181, 181);
+}
+
+.logo {
+  font-size: 2rem;
+  color:rgb(5, 2, 2);
+}
+
+.logo:hover {
+  cursor: default;
+}
+
+/* HAMBURGER MENU */
+
+#hamburger-nav {
+  display: none;
+}
+
+.hamburger-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.hamburger-icon span {
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  transition: all 0.3 ease-in-out;
+}
+
+.menu-links {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: black;
+  width: fit-content;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3 ease-in-out;
+}
+
+.menu-links a {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: black;
+  text-decoration: none;
+  transition: all 0.3 ease-in-out;
+}
+
+.menu-links li {
+  list-style: none;
+}
+
+.menu-links.open {
+  max-height: 300px;
+}
+
+.hamburger-icon.open span:first-child {
+  transform: rotate(45deg) translate(10px, 5px);
+}
+
+.hamburger-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-icon.open span:last-child {
+  transform: rotate(-45deg) translate(10px, -5px);
+}
+
+.hamburger-icon span:first-child {
+  transform: none;
+}
+
+.hamburger-icon span:first-child {
+  opacity: 1;
+}
+
+.hamburger-icon span:first-child {
+  transform: none;
+}
+title{
+  color:rgb(24, 207, 24);
+}
+h1,h2,h3,h4,h5,h6{
+  color: black;
+}
+.common-text{
+  color:rgb(24, 207, 24);
+  font-size: 2rem;
+}
+.profile-image{
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border: 2px  solid   rgb(24, 207, 24);
+}
+
+/* SECTIONS */
+
+section {
+  padding-top: 4vh;
+  height: 96vh;
+  margin: 0 10rem;
+  box-sizing: border-box;
+  min-height: fit-content;
+}
+
+.section-container {
+  display: flex;
+}
+.section_text_p1,.experience-sub-title{
+  text-align:center;
+}
+
+/* PROFILE SECTION */
+
+#profile {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  height: 80vh;
+}
+
+.section__text {
+  align-self: center;
+  text-align: center;
+}
+
+.section__text p {
+  font-weight: 600;
+}
+
+.section_text_p1 {
+  text-align: center;
+}
+
+.section_text_p2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 3rem;
+  text-align: center;
+  color:black;
+}
+
+#socials-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+/* ICONS */
+
+.icon {
+  cursor: pointer;
+  height: 2rem;
+}
+
+/* BUTTONS */
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  font-weight: 600;
+  transition: all 300ms ease;
+  padding: 1rem;
+  width: 8rem;
+  border-radius: 2rem;
+}
+
+.btn-color-1,
+.btn-color-2 {
+  border: rgb(53, 53, 53) 0.1rem solid;
+  background-color: rgb(24, 207, 24);
+  color:white;
+}
+
+.btn-color-1:hover,
+.btn-color-2:hover {
+  cursor: pointer;
+  background:rgb(24, 207, 24)
+}
+
+.btn-color-1,
+.btn-color-2:hover {
+  background: rgb(53, 53, 53);
+  color: white;
+}
+
+.btn-color-1:hover {
+  background: rgb(0, 0, 0);
+}
+
+.btn-color-2 {
+  background: none;
+}
+
+.btn-color-2:hover {
+  border: rgb(255, 255, 255) 0.1rem solid;
+}
+
+.btn-container {
+  gap: 1rem;
+}
+/* education section*/
+style{
+width: 300px;
+height: 300px;
+}
+/* ABOUT SECTION */
+
+#about {
+  position: relative;
+}
+
+.about-containers {
+  gap: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.about-details-container {
+  justify-content: center;
+  flex-direction: column;
+}
+
+.about-containers,
+.about-details-container {
+  display: flex;
+}
+
+.about-pic {
+  border-radius: 2rem;
+}
+
+.arrow {
+  position: absolute;
+  right: -5rem;
+  bottom: 2.5rem;
+}
+
+.details-container {
+  padding: 1.5rem;
+  flex: 1;
+  background:  rgb(255, 255, 255) 0.1rem solid;
+  border-radius: 2rem;
+  border: rgb(53, 53, 53) 0.1rem solid;
+  border-color: rgb(163, 163, 163);
+  text-align: center;
+}
+
+.section-container {
+  gap: 4rem;
+  height: 80%;
+}
+
+
+.section__pic-container {
+  display: flex;
+  height: 400px;
+  width: 400px;
+  margin: auto 0;
+}
+
+/* EXPERIENCE SECTION */
+
+#experience {
+  position: relative;
+}
+
+.experience-sub-title {
+  color: rgb(24, 207, 24);
+  font-weight: 600;
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.experience-details-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.article-container {
+  display: flex;
+  text-align: initial;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 2.5rem;
+  justify-content: space-around;
+}
+
+article {
+  display: flex;
+  width: 10rem;
+  justify-content: space-around;
+  gap: 0.5rem;
+}
+
+article .icon {
+  cursor: default;
+}
+/*certificates SECTION*/
+.certifications {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+#certificates-heading{
+  text-align: center;
+}
+.certifications .card {
+  width: calc(50% - 6rem); /* Adjust the width as needed */
+  display: inline-block;
+  margin: 3rem;
+  background-color: rgb(250, 250, 250);
+  border: 0.1rem solid rgb(250, 250, 250);
+  border-radius: 2rem;
+  padding: 1rem;
+  text-align: center;
+}
+.card {
+  width: 30%; /* Adjust the width as needed to fit your layout */
+  margin: 3rem;
+  background-color: rgb(250, 250, 250);
+  border: 0.1rem solid rgb(250, 250, 250);
+  border-radius: 2rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.card-img-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 20px
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  border:0.1rem solid rgb(163,163,163);
+  border-radius: 2rem;
+  margin: 0;
+}
+card-info{
+  text-align:center;
+}
+
+.card-info h3{
+  font-size: 1.2rem;
+}
+card-info p{
+  font-size: 1rem;
+}
+.skills {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.hello {
+  display: inline-block;
+  margin: 20px;
+}
+
+.containers {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.skillbar {
+  background-color: #4caf50;
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 3px;
+  width: 70%; /* Change this width according to your percentage */
+  margin: 5px auto;
+}
+
+.skillbar.html {
+  width: 60%;
+}
+
+.skillbar.css {
+  width: 60%;
+}
+
+.skillbar.js {
+  width: 30%;
+}
+
+/* PROJECTS SECTION */
+
+#projects {
+  position: relative;
+}
+
+.color-container {
+  border-color: rgb(163, 163, 163);
+  background:rgb(250, 250, 250);
+}
+
+.project-img {
+  border-radius: 4rem;
+  width: 80%;
+  height: 80%;
+}
+
+.project-title {
+  margin: 1rem;
+  color: black;
+}
+
+.project-btn {
+  color: black;
+  border-color: rgb(163, 163, 163);
+}
+
+.skills-image{
+  width: 200px;
+  height: 200px;
+}
+/* CONTACT */
+/* Add your own custom styles here */
+.contact {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    background-color:#f9f9f9;
+}
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+.contact-box{
+  max-width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.form-group {
+    margin: 10px 0;
+}
+
+label {
+    display: block;
+    font-size: 18px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color:  #32aef5;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #32aef5;
+}
+
+
+/* FOOTER SECTION */
+
+footer {
+  height: 26vh;
+  margin: 0 1rem;
+}
+
+footer p {
+  text-align: center;
+}
+  </style>
+  <body>
+    <nav id="desktop-nav">
+      <div class="logo">G.SUNEETHA</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#certificates">Certificates</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo">G.SUNEETHA</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#education" onclick="toggleMenu()">Education</a></li>
+          <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
+          <li><a href="#certifications" onclick="toggleMenu()">Certificates</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+  
+        </div>
+      </div>
+    </nav>
+    <section id="profile">
+      <div class="section__pic-container">
+        <img src="static/SELFPIC.jpg" alt="G.SUNEETHA"  class="profile-image"/>
+      </div>
+      <div class="section__text">
+        <p class="section_text_p1">Hello, I'm</p>
+        <h1 class="title">G.SUNEETHA</h1>
+        <h1 class="section-title">About <span>me</span></h1>
+        <h2>Frontend Developer</h2>
+        <p>I am a student currently studying, passionate web design trainee, I love web design and am eager to learn and grow, Acquiring skills in web design, HTML, CSS, and more and explore different kinds of projects showcasing my skills, and my Goals are to be more passionate</p>
+        <p>I am a frontend developer. And I have learnt about HTML, CSS, JAVASCRIPT.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="education">
+      <p class="section_text_p1">Get To Know More About Me</p>
+      <h1 class="title">EDUCATION</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="static/SELFPIC.jpg"
+            alt="Profile picture"
+            class="education-pic"
+          />
+
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img
+                src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?cs=srgb&dl=book-stack-books-education-51342.jpg&fm=jpg"
+                alt="Education icon"
+                class="icon"
+              />
+              <h1>Education</h1><br>
+              <p> *Completed SSC with 10/10 GPA.<br>*At ZPH HIGH school, RAVIKAMPADU.<br>
+              *In the year 2020.</p>
+            </div>
+            <div class="details-container">
+              <img
+                src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?cs=srgb&dl=book-stack-books-education-51342.jpg&fm=jpg"
+                alt="Education icon"
+                class="icon"
+              />
+              <h3>Education</h3><br>
+              <p>* Completed INTERMEDIATE  WITH 92%.<br>*At VIKAS JUNIOR COLLEGE,JANGAREDDY GUDEM .<br>
+              *In the year 2022.</p>
+            </div>
+            <div class="details-container">
+              <img
+                src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?cs=srgb&dl=book-stack-books-education-51342.jpg&fm=jpg"
+                alt="Education icon"
+                class="icon"
+              />
+              <h3>Education</h3><br>
+              <p>*Currently Pursuing B-tech 2nd year.<br>*With specilization of ARTIFICIAL INTELLIGENCE.</p>
+            </div>
+          </div>
+          <div class="text-container">
+      
+          </div>
+        </div>
+      </div>
+      <img
+        src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?cs=srgb&dl=book-stack-books-education-51342.jpg&fm=jpg"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#education'"
+      />
+    </section>
+    <div id="certificates">
+      <div class="sessao-header">
+      <h1 id="certificates-heading">CERTIFICATES</h1>
+      <div class="certifications">
+      <div class="card">
+      <div class="card-img-wrapper">
+        <img src="static/CERTIFICATE 1.jpg">
+      </div>
+      <div class="card-info">
+        <h2 class="experience-sub-title project-title">Edyst Certificate</h2>
+        <p>course: PYTHON</p>
+        <p>I Learn Python through Edyst Platform</p>
+        </div>
+      </div>
+        <div class="card">
+          <div class="card-img-wrapper">
+        <img src="static/CERTIFICATE 2.jpg">
+       </div>
+       <div class="card-info">
+        <h2 class="experience-sub-title project-title">LOAN APPROVAL PREDICTION</h2>
+        <p>Course:ARTIFICIAL INTELLIGENCE</p>
+        <p></p>
+      </div>
+    </div>
+    <div class="card">
+
+  </div> 
+ </div>
+</div>
+<section class="skills" id="skills">
+    <h1>My Skills</h1>
+    <div class="hello">
+      <div class="containers">
+        <h2>PYTHON</h2>
+        <div class="skillbar python">70%</div>
+      </div>
+    </div>
+    <div class="hello">
+      <div class="containers">
+        <h2>HTML</h2>
+        <div class="skillbar html">60%</div>
+      </div>
+    </div>
+    <div class="hello">
+      <div class="containers">
+        <h2>CSS</h2>
+        <div class="skillbar css">60%</div>
+      </div>
+    </div>
+    <div class="hello">
+      <div class="containers">
+        <h2>JAVA SCRIPT</h2>
+        <div class="skillbar js">30%</div>
+      </div>
+    </div>    
+  </section>
+
+</div>
+        </section>
+    <section id="projects">
+      <p class="section_text_p1"></p>
+      <h1 class="title">PROJECTS</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="static/PROJECT 1.jpg"
+                alt="Project 1"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Project -1</h2>
+            <h2 class="experience-sub-title project-title">REAL TIME POLLING</h2>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="static/PROJECT 2.jpg"
+                alt="Project 2"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Project -2</h2>
+            <h2 class="experience-sub-title project-title">TRAVEL BLOCK WEBSITE</h2>
+            </div>
+        </div>
+        <br><br>
+      </div>
+    </section>
+    <section id="contact">
+      <p class="section_text_p1">Get In Touch</p>
+      <h1 class="title">CONTACT ME</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container color-container">
+            <div class="article-container">
+              <form id="contact-form">
+                <div class="form-group">
+                  <label for="name">Name:</label>
+                  <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" required>                  
+                </div>
+                <div class="form-group">                      
+                  <label for="message">Message:</label>
+                  <textarea id="message" rows="5" required></textarea>
+                </div> 
+                <button type="submit" id="submit-button">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </body>
+    </html>
+     </div>
+     </div>
+      </div>
+    </div>
+  </section>
+  
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+
+            alert("Form submitted:\nName: " + name + "\nEmail: " + email + "\nMessage: " + message);
+        });
+    </script>
+</div>
+</div>
+</div>
+</section>
+    <footer>
+        <div class="social-item">
+          <a href="https://www.linkedin.com/in/sunitha-sunitha-1372a8289/"><img src="static/linkedin.jpg" alt="LinkedIn Icon"></a>
+        </div>
+        <div class="social-item">
+          <a href="https://github.com/Sunithagangula"><img src="static/github.jpg" alt="GITHUB ICON"></a>
+        </div>
+      </div>
+      <p>Copyright © 2023 SUNEETHA. All rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
